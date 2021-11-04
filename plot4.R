@@ -9,7 +9,7 @@ data <- fread("household_power_consumption.txt", na.strings="?")
 data %<>% mutate_at("Date", dmy)
 data %<>% filter(Date >= "2007-02-01" & Date <= "2007-02-02")
 
-# Combine Date and Time to plot energy sub metering against time of day
+# Combine Date and Time to plot variables against time of day
 data %<>% mutate(Datetime = parse_date_time(paste(Date, Time),"ymd HMS"))
 
 # Plot in grid of 2 x 2
